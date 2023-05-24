@@ -5,11 +5,16 @@ import { redirect } from "react-router-dom";
 export default function Search() {
     const [param, setParam] = useState("");
 
+    const onSubmit = (e) => {
+        e.preventDefault();
+        redirect(
+            `https://react-store123.netlify.app/products/search?q=${param}`
+        );
+    };
+
     return (
         <form
-            onSubmit={redirect(
-                `https://react-store123.netlify.app/products/search?q=${param}`
-            )}
+            onSubmit={onSubmit}
             className='flex shrink bg-sky-100 rounded-2xl items-center justify-between w-72 md:w-[30%]'
         >
             <input
