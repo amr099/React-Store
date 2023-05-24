@@ -25,7 +25,9 @@ export default function ProductCard({ product }) {
             </CardHeader>
             <CardBody>
                 <div className='flex items-center justify-between mb-2'>
-                    <Link to={`product/${product.id}`}>
+                    <Link
+                        to={`https://react-store123.netlify.app/product/${product.id}`}
+                    >
                         <Typography color='blue-gray' className='font-medium'>
                             {product.title}
                         </Typography>
