@@ -4,7 +4,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 export default function Search() {
     return (
         <form
-            action='https://react-store123.netlify.app/products/search'
+            action='/products/search'
             className='flex shrink bg-sky-100 rounded-2xl items-center justify-between w-72 md:w-[30%]'
         >
             <input

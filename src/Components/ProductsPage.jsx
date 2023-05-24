@@ -15,7 +15,7 @@ export default function ProductsPage({ data, title }) {
         <div className='relative min-h-screen'>
             <h2 className='m-10'>{title}</h2>
             <Sort setSortby={setSortby} />
-            <div className='flex flex-wrap justify-around'>
+            <div className='flex flex-wrap gap-10 justify-around'>
                 {data?.products
                     ?.slice(0)
                     .sort(sortFun)
