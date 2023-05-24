@@ -7,5 +7,5 @@ export default function SearchPage() {
     const [param, setParam] = useSearchParams();
     const { data } = useSearchQuery(param.get("q"));
 
-    return <ProductsPage data={data} title={`Search: ${param}`} />;
+    return <ProductsPage data={data} title={`Search: ${param.get("q")}`} />;
 }

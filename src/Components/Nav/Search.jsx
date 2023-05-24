@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Search() {
     const [param, setParam] = useState("");
+    const navigate = useNavigate();
 
     const onSubmit = (e) => {
         e.preventDefault();
-        redirect(
-            `https://react-store123.netlify.app/products/search?q=${param}`
-        );
+        navigate(`/products/search?q=${param}`);
     };
 
     return (
