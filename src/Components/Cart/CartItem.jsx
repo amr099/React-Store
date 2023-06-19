@@ -29,6 +29,7 @@ export default function CartItem({ item }) {
                         })
                     )
                 }
+                min={1}
             />
             <TrashIcon
                 className='w-8 h-8 hover:text-deep-orange-800 hover:cursor-pointer items-end'

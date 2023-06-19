@@ -1,13 +1,3 @@
-- Select API.
-    - Add ratings to product card.
-    - Customize product details (colors)
-
-Finish UI:
-- Create design system.
-- Design Landing Page.
-    - Board.
-    - Categories.
-    - Most Selling.
-    - Offers.
-    - Footer.
-
+- Integrate Tailwind UI
+- Orders
+- Login

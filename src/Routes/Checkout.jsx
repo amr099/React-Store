@@ -1,22 +1,22 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Input } from "@material-tailwind/react";
-import { getTotal } from "src/features/cart/cartSlice";
+import { getTotalPrice } from "src/features/cart/cartSlice";
 import CheckoutItem from "src/Components/Cart/CheckoutItem";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 export default function Checkout() {
     const cart = useSelector((state) => state.cart.items);
-    const total = useSelector((state) => state.cart.total);
+    const totalPrice = useSelector((state) => state.cart.totalPrice);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getTotal());
+        dispatch(getTotalPrice());
     }, []);
 
     return (
         <div>
-            <section className='flex flex-wrap  '>
+            <section className='flex flex-wrap pt-20'>
                 <div className='flex flex-col w-[100%] lg:w-[50%] py-4'>
                     <h2 className='text-lg font-bold md:text-3xl p-4'>Cart</h2>
                     <div className=' overflow-y-scroll h-96'>
@@ -27,7 +27,7 @@ export default function Checkout() {
                     <div className='flex justify-between mx-10 w-100 mt-2'>
                         <span className='font-semibold text-2xl'>Total</span>
                         <span className='font-semibold text-2xl text-light-green-600'>
-                            ${total}
+                            ${totalPrice}
                         </span>
                     </div>
                 </div>

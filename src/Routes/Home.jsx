@@ -8,7 +8,6 @@ export default function Home() {
         <>
             <Banner />
             <main className='mx-auto w-[90%]'>
-                <Categories />
                 <hr />
                 <Products />
             </main>

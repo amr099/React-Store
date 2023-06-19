@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import { addToCart } from "../../features/cart/cartSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
     Card,
@@ -10,10 +10,13 @@ import {
     Typography,
     Button,
     CardFooter,
+    Badge,
 } from "@material-tailwind/react";
 
 export default function ProductCard({ product }) {
+    const [quantity, setQuantity] = useState(0);
     const dispatch = useDispatch();
+    const cartItems = useSelector((state) => state.cart.items);
 
     return (
         <Card className='w-96'>
@@ -47,9 +50,19 @@ export default function ProductCard({ product }) {
                     ripple={false}
                     fullWidth={true}
                     className='flex gap-1 justify-center items-center bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:shadow-none hover:scale-105 focus:shadow-none focus:scale-105 active:scale-100'
-                    onClick={() => dispatch(addToCart(product))}
+                    onClick={() => {
+                        dispatch(addToCart(product));
+                        setQuantity((state) => (state += 1));
+                    }}
                 >
-                    Add to Cart <ShoppingCartIcon className='w-5 h-5' />
+                    Add to Cart{" "}
+                    {quantity ? (
+                        <Badge content={quantity}>
+                            <ShoppingCartIcon className='w-5 h-5' />
+                        </Badge>
+                    ) : (
+                        <ShoppingCartIcon className='w-5 h-5' />
+                    )}
                 </Button>
             </CardFooter>
         </Card>

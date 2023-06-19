@@ -9,7 +9,7 @@ export default function Cart() {
 
     return (
         <>
-            <h2 className='text-sm md:text-2xl font-bold ml-10'>
+            <h2 className='text-sm md:text-2xl font-bold ml-10 pt-20'>
                 Shopping Cart
             </h2>
             {cartItems?.map((item) => (

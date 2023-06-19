@@ -12,13 +12,13 @@ export default function ProductsPage({ data, title }) {
     };
 
     return (
-        <div className='relative min-h-screen'>
-            <h2 className='m-10'>{title}</h2>
+        <div className='min-h-screen pt-32'>
+            <h2 className='pl-10 capitalize'>{title}</h2>
             <Sort setSortby={setSortby} />
             <div className='flex flex-wrap gap-10 justify-around'>
                 {data?.products
                     ?.slice(0)
-                    .sort(sortFun)
+                    ?.sort(sortFun)
                     ?.map((product) => (
                         <ProductCard product={product} key={product.id} />
                     ))}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
 
-export default function Search() {
+export default function Search({ searchbar }) {
     const [param, setParam] = useState("");
     const navigate = useNavigate();
 
@@ -14,14 +14,17 @@ export default function Search() {
     return (
         <form
             onSubmit={onSubmit}
-            className='flex shrink bg-sky-100 rounded-2xl items-center justify-between w-72 md:w-[30%]'
+            className={`fixed w-[100%] z-10 mt-[4rem] ${
+                searchbar ? "scale-100" : "scale-0"
+            } flex shrink bg-sky-200  items-center justify-between transition-transform`}
         >
             <input
                 onChange={(e) => setParam(e.target.value)}
+                placeholder='Search'
                 type='search'
                 name='q'
                 id='search'
-                className='w-[90%] shrink bg-inherit pl-4 py-2 rounded-l-2xl focus:outline-none focus:bg-inherit'
+                className='w-[90%] shrink placeholder:text-white text-white bg-inherit pl-4 py-2  focus:outline-none focus:bg-inherit'
             />
 
             <button>
