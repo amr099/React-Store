@@ -7,6 +7,7 @@ import {
 import { Badge } from "@material-tailwind/react";
 import CustomMenu from "./../CustomMenu";
 import { useSelector } from "react-redux";
+import SignIn from "./../../GoogleAuth/SignIn";
 
 export default function Nav({ setSearchbar, searchbar }) {
     const [scroll, setScroll] = useState(false);
@@ -53,6 +54,7 @@ export default function Nav({ setSearchbar, searchbar }) {
                         <ShoppingCartIcon className='h-8 md:h-10 w-8 md:w-10 pr-2' />
                     </Link>
                 )}
+                <SignIn />
             </div>
         </nav>
     );
