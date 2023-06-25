@@ -10,5 +10,5 @@ Built with: React, Firebase and FakeStoreAPI.
 - Google authetication.
 - Orders.
   
-[Live Demo]([(https://react-store123.netlify.app/])
+[Live Demo]((https://react-store123.netlify.app/)
 
