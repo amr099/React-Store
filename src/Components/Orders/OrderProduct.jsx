@@ -3,22 +3,24 @@ import { Badge, Typography, Avatar } from "@material-tailwind/react";
 
 export default function OrderProduct({ item }) {
     return (
-        <>
-            <Badge color='amber' content={item?.quantity}>
-                <Avatar
-                    src={item?.thumbnail}
-                    alt={item?.title}
-                    size='md'
-                    className='border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1'
-                />
-            </Badge>
-            <Typography
-                variant='small'
-                color='blue-gray'
-                className='font-bold md:text-lg'
-            >
-                {item?.title}
-            </Typography>
+        <div className='flex justify-between items-center mb-10'>
+            <div className='flex gap-5 items-center j'>
+                <Badge color='amber' content={item?.quantity}>
+                    <Avatar
+                        src={item?.thumbnail}
+                        alt={item?.title}
+                        size='md'
+                        className='border border-blue-gray-50 bg-blue-gray-50/50 object-contain p-1'
+                    />
+                </Badge>
+                <Typography
+                    variant='small'
+                    color='blue-gray'
+                    className='font-bold md:text-lg'
+                >
+                    {item?.title}
+                </Typography>
+            </div>
             <Typography
                 variant='small'
                 color='blue-gray'
@@ -26,6 +28,6 @@ export default function OrderProduct({ item }) {
             >
                 ${item?.price * item?.quantity}
             </Typography>
-        </>
+        </div>
     );
 }

@@ -9,6 +9,8 @@ import Cart from "src/Routes/Cart";
 import { getTotalPrice, clearCart } from "src/features/cart/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import OrderItem from "src/Components/Orders/Order";
+import OrderProduct from "src/Components/Orders/OrderProduct";
 
 export default function Checkout() {
     const user = useSelector((state) => state.auth);
@@ -50,7 +52,7 @@ export default function Checkout() {
                 totalPrice: totalPrice,
             });
             dispatch(clearCart());
-            navigate(`/order/${orderId}`);
+            // navigate(`/order/${orderId}`);
         } catch (e) {
             console.log(e);
         }
@@ -107,7 +109,11 @@ export default function Checkout() {
                 </form>
             </div>
             <div className='w-[90%] md:w-[50%]'>
-                <Cart totalPrice={totalPrice} />
+                <h2 className='text-lg font-bold md:text-3xl py-4'>Cart</h2>
+                {/* <Cart totalPrice={totalPrice} /> */}
+                {cartItems.map((item) => (
+                    <OrderProduct item={item} />
+                ))}
             </div>
         </section>
     );

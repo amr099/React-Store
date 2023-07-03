@@ -10,7 +10,7 @@ import {
     CardBody,
     Alert,
 } from "@material-tailwind/react";
-import OrderItem from "src/Components/Orders/OrderItem";
+import Order from "src/Components/Orders/Order";
 
 export default function OrdersPage() {
     const user = useSelector((state) => state.auth);
@@ -85,7 +85,7 @@ export default function OrdersPage() {
                         {orders ? (
                             <tbody>
                                 {orders.map((item) => (
-                                    <OrderItem item={item} />
+                                    <Order item={item} />
                                 ))}
                             </tbody>
                         ) : (

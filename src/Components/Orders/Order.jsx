@@ -7,7 +7,7 @@ import { deleteDoc, doc } from "firebase/firestore";
 
 const tdclasses = "p-4 border-b border-blue-gray-50";
 
-export default function OrderItem({ item }) {
+export default function Order({ item }) {
     const onDelete = (id) => {
         deleteDoc(doc(db, "Orders", id));
     };
