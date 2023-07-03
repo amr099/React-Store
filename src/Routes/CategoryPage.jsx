@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useGetCategoryQuery } from "src/features/products/productsApiSlice";
-import ProductsPage from "src/Components/ProductsPage";
+import ProductsPage from "src/Components/Products/ProductsPage";
 
 export default function CategoryPage() {
     const { category } = useParams();

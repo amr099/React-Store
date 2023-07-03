@@ -1,32 +1,30 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { auth, provider } from "../firebase-config";
-
-import React from "react";
+import { auth, db, provider } from "../firebase-config";
+import { signInWithPopup } from "firebase/auth";
+import React, { useState } from "react";
+import { UserIcon } from "@heroicons/react/24/outline";
+import { useDispatch } from "react-redux";
+import { signIn } from "src/features/auth/authSlice";
+import { Tooltip } from "@material-tailwind/react";
 
 export default function SignIn() {
-    const signIn = () => {
-        signInWithPopup(auth, provider)
-            .then((result) => {
-                // This gives you a Google Access Token. You can use it to access the Google API.
-                const credential =
-                    GoogleAuthProvider.credentialFromResult(result);
-                const token = credential.accessToken;
-                // The signed-in user info.
-                const user = result.user;
-                // IdP data available using getAdditionalUserInfo(result)
-                // ...
-            })
-            .catch((error) => {
-                // Handle Errors here.
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // The email of the user's account used.
-                const email = error.customData.email;
-                // The AuthCredential type that was used.
-                const credential =
-                    GoogleAuthProvider.credentialFromError(error);
-                // ...
-            });
+    const dispatch = useDispatch();
+    const [adminIds, setAdminIds] = useState([]);
+
+    const login = async () => {
+        try {
+            const result = await signInWithPopup(auth, provider);
+            dispatch(signIn(result.user));
+        } catch (error) {
+            console.log(error);
+        }
     };
-    return <button onClick={signIn}>SignIn</button>;
+
+    return (
+        <Tooltip content='Login'>
+            <UserIcon
+                className='h-8 md:h-10 w-8 md:w-10 pr-2 hover:cursor-pointer'
+                onClick={login}
+            />
+        </Tooltip>
+    );
 }

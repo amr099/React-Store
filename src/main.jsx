@@ -4,16 +4,16 @@ import App from "./App";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "./app/store";
+import store from "./store/store";
 import Home from "./Routes/Home";
 import Checkout from "./Routes/Checkout";
 import ProductDetails from "./Routes/ProductDetails";
 import ErrorPage from "./Components/ErrorPage";
-import Cart from "./Components/Cart/Cart";
-import { ApiProvider } from "@reduxjs/toolkit/dist/query/react";
-import { productsApi } from "./features/products/productsApiSlice";
+import Cart from "./Routes/Cart";
 import CategoryPage from "./Routes/CategoryPage";
 import SearchPage from "./Routes/SearchPage";
+import OrdersPage from "./Routes/OrdersPage";
+import OrderPage from "./Routes/OrderPage";
 
 const router = createBrowserRouter([
     {
@@ -40,6 +40,14 @@ const router = createBrowserRouter([
             {
                 path: "cart",
                 element: <Cart />,
+            },
+            {
+                path: "orders",
+                element: <OrdersPage />,
+            },
+            {
+                path: "order/:id",
+                element: <OrderPage />,
             },
             {
                 path: "checkout",

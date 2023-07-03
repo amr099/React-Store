@@ -16,7 +16,6 @@ import {
 export default function ProductCard({ product }) {
     const [quantity, setQuantity] = useState(0);
     const dispatch = useDispatch();
-    const cartItems = useSelector((state) => state.cart.items);
 
     return (
         <Card className='w-96'>

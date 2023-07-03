@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
 
-export default function Search({ searchbar }) {
+export default function Search({ searchbar, scroll }) {
     const [param, setParam] = useState("");
     const navigate = useNavigate();
 
@@ -14,7 +14,7 @@ export default function Search({ searchbar }) {
     return (
         <form
             onSubmit={onSubmit}
-            className={`fixed w-[100%] z-10 mt-[4rem] ${
+            className={`fixed w-[100%] z-10 ${scroll && "mt-[4rem]"} ${
                 searchbar ? "scale-100" : "scale-0"
             } flex shrink bg-sky-200  items-center justify-between transition-transform`}
         >

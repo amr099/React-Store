@@ -1,3 +1,6 @@
-- Integrate Tailwind UI
-- Orders
-- Login
+- UI
+    - Orders
+    - OrderDetails
+    - Additional content
+    - Typography
+    - Colors
