@@ -1,5 +1,11 @@
-import { useCollectionData } from "react-firebase-hooks/firestore";
-import { collection, doc, onSnapshot } from "firebase/firestore";
+import {
+    collection,
+    doc,
+    getDocs,
+    onSnapshot,
+    query,
+    where,
+} from "firebase/firestore";
 import { db } from "src/firebase-config";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
@@ -14,27 +20,39 @@ import Order from "src/Components/Orders/Order";
 
 export default function OrdersPage() {
     const user = useSelector((state) => state.auth);
-    const [data, loading, error, snapshot] = useCollectionData(
-        collection(db, "Orders")
-    );
     const [orders, setOrders] = useState([]);
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-        const getOrders = () => {
+    const getOrders = () => {
+        try {
             onSnapshot(doc(db, "Admins", "IDs"), async (doc) => {
                 const ids = await doc.data().IDs;
                 const isAdmin = ids?.includes(user.uid);
-                if (!isAdmin) {
-                    setOrders(data?.filter((order) => order.uid == user.uid));
-                    return;
+                let ordersDocs;
+                if (isAdmin) {
+                    ordersDocs = await getDocs(query(collection(db, "Orders")));
                 } else {
-                    setOrders(data);
-                    return;
+                    ordersDocs = await getDocs(
+                        query(
+                            collection(db, "Orders"),
+                            where("uid", "==", user.uid)
+                        )
+                    );
                 }
+                let orders = [];
+                ordersDocs.forEach((doc) => {
+                    orders.push(doc.data());
+                });
+                setOrders(orders);
             });
-        };
+        } catch (e) {
+            console.log("error getting orders");
+        }
+    };
+    useEffect(() => {
         getOrders();
+    }, [user]);
+    useEffect(() => {
+        window.scrollTo(0, 0);
     }, []);
 
     return user ? (

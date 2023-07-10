@@ -20,18 +20,18 @@ export default function CategoriesMenu() {
                 unmount: { y: 25 },
             }}
         >
-            <MenuHandler>
+            <MenuHandler className='capitalize'>
                 <Button
                     variant='text'
-                    className='text-black font-light flex gap-2 text-xs'
+                    className='text-black font-light text-xs'
                 >
-                    <h3 className='text-primary text-s lg:text-base'>
-                        Categories
+                    <h3 className='text-primary flex gap-1 items-center text-s lg:text-base'>
+                        Categories{" "}
+                        <ChevronDownIcon
+                            strokeWidth={2.5}
+                            className={`h-3.5 w-3.5 transition-transform text-primary`}
+                        />
                     </h3>
-                    <ChevronDownIcon
-                        strokeWidth={2.5}
-                        className={`h-3.5 w-3.5 transition-transform text-primary`}
-                    />
                 </Button>
             </MenuHandler>
             <MenuList className='w-[80%] max-h-96 '>
