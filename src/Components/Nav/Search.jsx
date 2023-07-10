@@ -16,7 +16,7 @@ export default function Search({ searchbar, scroll }) {
             onSubmit={onSubmit}
             className={`fixed w-[100%] z-10 ${scroll && "mt-[4rem]"} ${
                 searchbar ? "scale-100" : "scale-0"
-            } flex shrink bg-sky-200  items-center justify-between transition-transform`}
+            } flex shrink bg-gray-50 items-center justify-between transition-transform`}
         >
             <input
                 onChange={(e) => setParam(e.target.value)}
@@ -24,11 +24,11 @@ export default function Search({ searchbar, scroll }) {
                 type='search'
                 name='q'
                 id='search'
-                className='w-[90%] shrink placeholder:text-white text-white bg-inherit pl-4 py-2  focus:outline-none focus:bg-inherit'
+                className='w-[97%] shrink text-primary bg-inherit pl-4 py-2  focus:outline-none focus:bg-inherit placeholder:text-gray-400'
             />
 
             <button>
-                <MagnifyingGlassIcon className='w-6 md:w-10 h-7 md:h-7 px-1' />
+                <MagnifyingGlassIcon className='w-6 h-6 mx-2 text-primary' />
             </button>
         </form>
     );

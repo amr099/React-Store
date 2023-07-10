@@ -5,7 +5,7 @@ export const authSlice = createSlice({
     initialState: JSON.parse(sessionStorage.getItem("user")),
     reducers: {
         signIn: (state, action) => {
-            const { uid, displayName, email, photoURL, admin } = action.payload;
+            const { uid, displayName, email, photoURL } = action.payload;
             sessionStorage.setItem(
                 "user",
                 JSON.stringify({

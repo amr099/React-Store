@@ -67,9 +67,9 @@ export default function Cart({ totalPrice }) {
             <CardFooter className='flex justify-between p-4 items-center gap-3'>
                 {cartItems?.length !== 0 && (
                     <>
-                        <h2>Total: ${totalPrice}</h2>
-                        <Link to='/checkout'>
-                            <Button className='text-sm font-bold float-right mr-10 flex gap-1'>
+                        {totalPrice && <h2>Total: ${totalPrice}</h2>}
+                        <Link to='/checkout' className='ml-auto'>
+                            <Button className='text-sm font-bold mr-10 flex gap-1 '>
                                 Checkout <ArrowRightIcon className='w-5 h-5' />
                             </Button>
                         </Link>

@@ -23,7 +23,7 @@ export default function CartItem({ item }) {
                         <Typography
                             variant='small'
                             color='blue-gray'
-                            className='font-bold md:text-lg'
+                            className='font-bold md:text-lg text-primary'
                         >
                             {item?.title}
                         </Typography>
@@ -34,7 +34,7 @@ export default function CartItem({ item }) {
                 <Typography
                     variant='small'
                     color='blue-gray'
-                    className='font-normal md:text-lg'
+                    className='font-normal md:text-lg text-primary'
                 >
                     ${item?.price * item?.quantity}
                 </Typography>

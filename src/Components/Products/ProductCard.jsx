@@ -18,23 +18,29 @@ export default function ProductCard({ product }) {
     const dispatch = useDispatch();
 
     return (
-        <Card className='w-96'>
-            <CardHeader shadow={false} floated={false} className='h-96'>
+        <Card className='w-52 xl:w-72 !flex !flex-col !justify-between h-96'>
+            <CardHeader shadow={false} floated={false} className='h-32 xl:h-52'>
                 <img
                     src={product.thumbnail}
                     className='w-full h-full object-cover'
                 />
             </CardHeader>
             <CardBody>
-                <div className='flex items-center justify-between mb-2'>
+                <div className='flex items-center justify-between gap-3 mb-2'>
                     <Link to={`/product/${product.id}`}>
-                        <Typography color='blue-gray' className='font-medium'>
+                        <h4
+                            color='blue-gray'
+                            className='text-xs font-semibold text-primary lg:text-base'
+                        >
                             {product.title}
-                        </Typography>
+                        </h4>
                     </Link>
-                    <Typography color='blue-gray' className='font-medium'>
+                    <h4
+                        color='blue-gray'
+                        className='self-end text-xs font-semibold text-primary lg:text-base'
+                    >
                         ${product.price}
-                    </Typography>
+                    </h4>
                 </div>
                 <Typography
                     variant='small'
@@ -56,11 +62,11 @@ export default function ProductCard({ product }) {
                 >
                     Add to Cart{" "}
                     {quantity ? (
-                        <Badge content={quantity}>
-                            <ShoppingCartIcon className='w-5 h-5' />
+                        <Badge content={quantity} color='green'>
+                            <ShoppingCartIcon className='w-5 h-5 text-primary' />
                         </Badge>
                     ) : (
-                        <ShoppingCartIcon className='w-5 h-5' />
+                        <ShoppingCartIcon className='w-5 h-5 text-primary' />
                     )}
                 </Button>
             </CardFooter>

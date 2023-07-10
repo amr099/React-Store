@@ -8,7 +8,6 @@ import Cart from "./Cart";
 export default function OrderPage() {
     const { id } = useParams();
     const [data, setData] = useState({});
-    console.log(id);
     useEffect(() => {
         onSnapshot(doc(db, "Orders", id), (doc) => {
             setData(doc.data());

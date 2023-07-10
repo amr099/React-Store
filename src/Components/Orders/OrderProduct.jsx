@@ -5,7 +5,7 @@ export default function OrderProduct({ item }) {
     return (
         <div className='flex justify-between items-center mb-10'>
             <div className='flex gap-5 items-center j'>
-                <Badge color='amber' content={item?.quantity}>
+                <Badge color='green' content={item?.quantity}>
                     <Avatar
                         src={item?.thumbnail}
                         alt={item?.title}
@@ -16,7 +16,7 @@ export default function OrderProduct({ item }) {
                 <Typography
                     variant='small'
                     color='blue-gray'
-                    className='font-bold md:text-lg'
+                    className='font-bold md:text-lg text-primary'
                 >
                     {item?.title}
                 </Typography>
@@ -24,7 +24,7 @@ export default function OrderProduct({ item }) {
             <Typography
                 variant='small'
                 color='blue-gray'
-                className='font-normal md:text-lg'
+                className='font-normal md:text-lg text-primary'
             >
                 ${item?.price * item?.quantity}
             </Typography>

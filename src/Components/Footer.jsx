@@ -7,7 +7,7 @@ export default function Footer() {
         <footer className='relative w-full mt-10 bg-sky-100 py-5'>
             <div className='mx-auto w-full max-w-7xl px-8'>
                 <div className='grid grid-cols-1 justify-between gap-4 md:grid-cols-2'>
-                    <Typography variant='h5' className='mb-6'>
+                    <Typography variant='h5' className='mb-6 text-primary'>
                         React Store
                     </Typography>
                 </div>
@@ -19,7 +19,7 @@ export default function Footer() {
                         &copy; {currentYear}{" "}
                         <a
                             href='https://amrahmad.netlify.app/'
-                            className='font-bold hover:text-sky-500'
+                            className='font-bold hover:text-primary'
                         >
                             Amr Ahmad
                         </a>
@@ -29,7 +29,7 @@ export default function Footer() {
                         <Typography
                             as='a'
                             href='https://github.com/amr099'
-                            className='opacity-80 transition-opacity hover:opacity-100'
+                            className='opacity-80 transition-opacity hover:opacity-100 hover:text-2xl'
                         >
                             <svg
                                 className='h-5 w-5'

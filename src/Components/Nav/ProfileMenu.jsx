@@ -25,7 +25,7 @@ export default function ProfileMenu() {
                 <Button
                     variant='text'
                     color='blue-gray'
-                    className='flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5'
+                    className='flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 text-primary'
                 >
                     <Avatar
                         variant='circular'
@@ -40,9 +40,10 @@ export default function ProfileMenu() {
                 <Link to='/orders'>
                     <MenuItem
                         onClick={closeMenu}
-                        className={`flex items-center justify-center gap-2 rounded`}
+                        className={`flex items-center justify-center gap-2 rounded `}
                     >
-                        <ShoppingBagIcon className='w-6 h-6' /> Orders
+                        <ShoppingBagIcon className='w-6 h-6 text-primary' />{" "}
+                        Orders
                     </MenuItem>
                 </Link>
                 <MenuItem
@@ -50,9 +51,9 @@ export default function ProfileMenu() {
                         dispatch(signOut());
                         closeMenu;
                     }}
-                    className={`flex items-center justify-center gap-2 rounded`}
+                    className={`flex items-center justify-center gap-2 rounded `}
                 >
-                    <PowerIcon className='w-6 h-6' /> Logout
+                    <PowerIcon className='w-6 h-6 text-primary' /> Logout
                 </MenuItem>
             </MenuList>
         </Menu>

@@ -14,6 +14,8 @@ import CategoryPage from "./Routes/CategoryPage";
 import SearchPage from "./Routes/SearchPage";
 import OrdersPage from "./Routes/OrdersPage";
 import OrderPage from "./Routes/OrderPage";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const router = createBrowserRouter([
     {

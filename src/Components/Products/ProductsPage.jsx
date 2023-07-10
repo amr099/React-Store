@@ -13,7 +13,9 @@ export default function ProductsPage({ data, title }) {
 
     return (
         <div className='min-h-screen pt-10'>
-            <h2 className='pl-10 capitalize'>{title}</h2>
+            <h3 className='pl-10 text-s lg:text-xl font-bold text-primary mb-4 capitalize'>
+                {title}
+            </h3>
             <Sort setSortby={setSortby} />
             <div className='flex flex-wrap gap-10 justify-around'>
                 {data?.products

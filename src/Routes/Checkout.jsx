@@ -110,7 +110,6 @@ export default function Checkout() {
             </div>
             <div className='w-[90%] md:w-[50%]'>
                 <h2 className='text-lg font-bold md:text-3xl py-4'>Cart</h2>
-                {/* <Cart totalPrice={totalPrice} /> */}
                 {cartItems.map((item) => (
                     <OrderProduct item={item} />
                 ))}

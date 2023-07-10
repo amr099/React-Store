@@ -1,4 +1,4 @@
-import { Badge, Navbar } from "@material-tailwind/react";
+import { Badge, Navbar, Typography } from "@material-tailwind/react";
 import ProfileMenu from "./ProfileMenu";
 import CategoriesMenu from "./CategoriesMenu";
 import { useSelector } from "react-redux";
@@ -33,26 +33,25 @@ export default function Nav({ searchbar, setSearchbar, scroll }) {
             >
                 <div className='flex items-center justify-between text-blue-gray-900'>
                     <Link to='/'>
-                        <h1 className='whitespace-nowrap text-sm md:text-3xl font-bold pl-2'>
-                            {" "}
+                        <h1 className='text-primary text-lg font-bold whitespace-nowrap lg:text-2xl'>
                             React Store
                         </h1>
                     </Link>
                     <CategoriesMenu />
                     <div className='flex gap-4 items-center'>
                         <MagnifyingGlassIcon
-                            className='h-4 md:h-6 w-4 md:w-6 hover:cursor-pointer'
+                            className='h-4 md:h-6 w-4 md:w-6 hover:cursor-pointer text-primary'
                             onClick={() => setSearchbar(!searchbar)}
                         />
                         {quantity !== 0 ? (
-                            <Badge content={quantity}>
+                            <Badge content={quantity} color='green'>
                                 <Link to='cart'>
-                                    <ShoppingCartIcon className='h-6 md:h-8 w-6 md:w-8 pr-2' />
+                                    <ShoppingCartIcon className='h-6 md:h-8 w-6 md:w-8 pr-2 text-primary' />
                                 </Link>
                             </Badge>
                         ) : (
                             <Link to='cart'>
-                                <ShoppingCartIcon className='h-6 md:h-8 w-6 md:w-8 pr-2' />
+                                <ShoppingCartIcon className='h-6 md:h-8 w-6 md:w-8 pr-2 text-primary' />
                             </Link>
                         )}
                         <div>{user ? <ProfileMenu /> : <SignIn />}</div>

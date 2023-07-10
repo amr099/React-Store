@@ -20,9 +20,9 @@ export default function SignIn() {
     };
 
     return (
-        <Tooltip content='Login'>
+        <Tooltip content='Login' className='bg-primary'>
             <UserIcon
-                className='h-8 md:h-10 w-8 md:w-10 pr-2 hover:cursor-pointer'
+                className='h-8 md:h-10 w-8 md:w-10 pr-2 hover:cursor-pointer text-primary'
                 onClick={login}
             />
         </Tooltip>

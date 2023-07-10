@@ -14,31 +14,28 @@ import Order from "src/Components/Orders/Order";
 
 export default function OrdersPage() {
     const user = useSelector((state) => state.auth);
-    const [admin, setAdmin] = useState(false);
-    const [clientOrders, setClientOrders] = useState([]);
     const [data, loading, error, snapshot] = useCollectionData(
         collection(db, "Orders")
     );
+    const [orders, setOrders] = useState([]);
 
     useEffect(() => {
         window.scrollTo(0, 0);
-
-        const checkAdmin = () => {
-            onSnapshot(doc(db, "Admins", "IDs"), (doc) => {
-                setAdmin(doc.data()?.IDs?.includes(user.uid));
+        const getOrders = () => {
+            onSnapshot(doc(db, "Admins", "IDs"), async (doc) => {
+                const ids = await doc.data().IDs;
+                const isAdmin = ids?.includes(user.uid);
+                if (!isAdmin) {
+                    setOrders(data?.filter((order) => order.uid == user.uid));
+                    return;
+                } else {
+                    setOrders(data);
+                    return;
+                }
             });
         };
-        checkAdmin();
-
-        const getClientOrders = () => {
-            setClientOrders(data?.filter((order) => order.uid == user.uid));
-        };
-        if (!admin) {
-            getClientOrders();
-        }
-    }, [user]);
-
-    const orders = admin ? data : clientOrders;
+        getOrders();
+    }, []);
 
     return user ? (
         <Card className='max-h-[90vh] w-full'>
@@ -49,61 +46,41 @@ export default function OrdersPage() {
                     </Typography>
                 </div>
             </CardHeader>
-            {orders?.length === 0 ? (
-                <Alert
-                    className='md:w-[50%] w-[70%] mx-auto'
-                    color='orange'
-                    variant='ghost'
-                >
-                    You have to login first!
-                </Alert>
-            ) : (
-                <CardBody className=' overflow-auto px-0'>
-                    <table className='w-full min-w-max table-auto text-left'>
-                        <thead>
-                            <tr>
-                                <th className='border-y border-blue-gray-100 bg-blue-gray-50/50 p-4'>
-                                    Order ID
-                                </th>
-                                <th className='border-y border-blue-gray-100 bg-blue-gray-50/50 p-4'>
-                                    User ID
-                                </th>
-                                <th className='border-y border-blue-gray-100 bg-blue-gray-50/50 p-4'>
-                                    Total
-                                </th>
-                                <th className='border-y border-blue-gray-100 bg-blue-gray-50/50 p-4'>
-                                    Address
-                                </th>
-                                <th className='border-y border-blue-gray-100 bg-blue-gray-50/50 p-4'>
-                                    Phone
-                                </th>
-                                <th className='border-y border-blue-gray-100 bg-blue-gray-50/50 p-4'>
-                                    Remove
-                                </th>
-                            </tr>
-                        </thead>
-                        {orders ? (
-                            <tbody>
-                                {orders.map((item) => (
-                                    <Order item={item} />
-                                ))}
-                            </tbody>
-                        ) : (
-                            <Alert
-                                className='md:w-[50%] w-[70%] mx-auto'
-                                color='orange'
-                                variant='ghost'
-                            >
-                                There's no orders yet.
-                            </Alert>
-                        )}
-                    </table>
-                </CardBody>
-            )}
+            <CardBody className=' overflow-auto px-0'>
+                <table className='w-full min-w-max table-auto text-left'>
+                    <thead>
+                        <tr>
+                            <th className='border-y border-blue-gray-100 bg-blue-gray-50/50 p-4'>
+                                Order ID
+                            </th>
+                            <th className='border-y border-blue-gray-100 bg-blue-gray-50/50 p-4'>
+                                User ID
+                            </th>
+                            <th className='border-y border-blue-gray-100 bg-blue-gray-50/50 p-4'>
+                                Total
+                            </th>
+                            <th className='border-y border-blue-gray-100 bg-blue-gray-50/50 p-4'>
+                                Address
+                            </th>
+                            <th className='border-y border-blue-gray-100 bg-blue-gray-50/50 p-4'>
+                                Phone
+                            </th>
+                            <th className='border-y border-blue-gray-100 bg-blue-gray-50/50 p-4'>
+                                Remove
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {orders?.map((item) => (
+                            <Order item={item} />
+                        ))}
+                    </tbody>
+                </table>
+            </CardBody>
         </Card>
     ) : (
         <Alert
-            className='md:w-[50%] w-[70%] mx-auto'
+            className='md:w-[50%] w-[70%] mx-auto my-10'
             color='orange'
             variant='ghost'
         >

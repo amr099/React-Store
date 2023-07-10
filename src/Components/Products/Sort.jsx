@@ -1,17 +1,16 @@
+import { Option, Select } from "@material-tailwind/react";
 import React from "react";
 
 export default function Sort({ setSortby }) {
     return (
-        <div className='flex flex-col w-36 mt-6 ml-12'>
+        <div className='flex flex-col w-36 my-6 ml-12'>
             <label htmlFor='sort' className='font-bold'>
                 Sort by price
             </label>
-            <select id='sort' onChange={(e) => setSortby(e.target.value)}>
-                <optgroup label='by price'>
-                    <option value='asc'>Asc</option>
-                    <option value='dec'>Dec</option>
-                </optgroup>
-            </select>
+            <Select id='sort' onChange={(e) => setSortby(e)}>
+                <Option value='asc'>Asc</Option>
+                <Option value='dec'>Dec</Option>
+            </Select>
         </div>
     );
 }
