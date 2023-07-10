@@ -61,7 +61,7 @@ export default function Checkout() {
     return (
         <section className='flex flex-wrap justify-around gap-10 pt-10'>
             <div className='w-[100%] md:w-[40%] p-4 flex flex-col'>
-                <h2 className='text-lg font-bold md:text-3xl py-4'>
+                <h2 className='text-lg font-bold md:text-3xl mb-10 text-primary'>
                     User's Information
                 </h2>
                 <form
@@ -109,7 +109,9 @@ export default function Checkout() {
                 </form>
             </div>
             <div className='w-[90%] md:w-[50%]'>
-                <h2 className='text-lg font-bold md:text-3xl py-4'>Cart</h2>
+                <h2 className='text-lg font-bold md:text-3xl my-10 text-primary'>
+                    Cart
+                </h2>
                 {cartItems.map((item) => (
                     <OrderProduct item={item} />
                 ))}

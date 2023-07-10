@@ -24,7 +24,7 @@ export default function Cart({ totalPrice }) {
         <Card className='max-h-[90vh] w-full'>
             <CardHeader floated={false} shadow={false} className='rounded-none'>
                 <div className='mb-4 flex flex-col justify-center gap-8 md:flex-row md:items-center'>
-                    <Typography variant='h5' color='blue-gray'>
+                    <Typography variant='h5' className='text-primary'>
                         Shopping Cart
                     </Typography>
                 </div>
