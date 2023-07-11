@@ -36,7 +36,7 @@ export default function ProductDetails() {
                             color='gray'
                             className='font-normal opacity-75'
                         >
-                            {data.description}
+                            {data?.description}
                         </Typography>
                         <h4 className='pt-8 text-primary'>$ {data?.price}</h4>
                     </div>
