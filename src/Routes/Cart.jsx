@@ -8,17 +8,24 @@ import {
     CardFooter,
     Alert,
 } from "@material-tailwind/react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CartItem from "../Components/Cart/CartItem";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import { getTotalPrice } from "src/features/cart/cartSlice";
 
-export default function Cart({ totalPrice }) {
+export default function Cart() {
     const cartItems = useSelector((state) => state.cart.items);
+    const totalPrice = useSelector((state) => state.cart.totalPrice);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
+
+    useEffect(() => {
+        dispatch(getTotalPrice());
+    }, [cartItems]);
 
     return (
         <Card className='max-h-[90vh] w-full'>
@@ -67,7 +74,14 @@ export default function Cart({ totalPrice }) {
             <CardFooter className='flex justify-between p-4 items-center gap-3'>
                 {cartItems?.length !== 0 && (
                     <>
-                        {totalPrice && <h2>Total: ${totalPrice}</h2>}
+                        {totalPrice && (
+                            <p>
+                                Total:{" "}
+                                <span className='text-primary'>
+                                    ${totalPrice}
+                                </span>
+                            </p>
+                        )}
                         <Link to='/checkout' className='ml-auto'>
                             <Button className='text-sm font-bold mr-10 flex gap-1 '>
                                 Checkout <ArrowRightIcon className='w-5 h-5' />

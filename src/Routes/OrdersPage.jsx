@@ -83,9 +83,6 @@ export default function OrdersPage() {
                             <th className='border-y border-blue-gray-100 bg-blue-gray-50/50 p-4'>
                                 Phone
                             </th>
-                            <th className='border-y border-blue-gray-100 bg-blue-gray-50/50 p-4'>
-                                Remove
-                            </th>
                         </tr>
                     </thead>
                     <tbody>

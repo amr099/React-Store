@@ -45,7 +45,7 @@ export default function ProductCard({ product }) {
                 <Typography
                     variant='small'
                     color='gray'
-                    className='font-normal opacity-75'
+                    className='font-normal opacity-75 text-ellipsis overflow-hidden w-42'
                 >
                     {product.description}
                 </Typography>

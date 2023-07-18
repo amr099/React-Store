@@ -15,15 +15,15 @@ export default function Order({ item }) {
         <tr key={item?.id}>
             <td className={tdclasses}>
                 <div className='flex items-center gap-3'>
-                    {/* <Link to={`/order/${item?.id}`}> */}
-                    <Typography
-                        variant='small'
-                        color='blue-gray'
-                        className='font-bold md:text-lg'
-                    >
-                        {item?.id}
-                    </Typography>
-                    {/* </Link> */}
+                    <Link to={`/order/${item?.id}`}>
+                        <Typography
+                            variant='small'
+                            color='blue-gray'
+                            className='font-bold md:text-lg'
+                        >
+                            {item?.id}
+                        </Typography>
+                    </Link>
                 </div>
             </td>
             <td className={tdclasses}>
@@ -61,14 +61,6 @@ export default function Order({ item }) {
                 >
                     {item?.phone}
                 </Typography>
-            </td>
-            <td className={tdclasses}>
-                <div className='w-max'>
-                    <TrashIcon
-                        className='w-8 h-8 hover:text-deep-orange-800 hover:cursor-pointer items-end'
-                        onClick={() => onDelete(item.id)}
-                    />
-                </div>
             </td>
         </tr>
     );

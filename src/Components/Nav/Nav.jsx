@@ -54,7 +54,10 @@ export default function Nav({ searchbar, setSearchbar, scroll }) {
                                 <ShoppingCartIcon className='h-6 md:h-8 w-6 md:w-8 pr-2 text-primary' />
                             </Link>
                         )}
-                        <div>{user ? <ProfileMenu /> : <SignIn />}</div>
+
+                        <div className='border-l-2 px-2'>
+                            {user ? <ProfileMenu /> : <SignIn />}
+                        </div>
                     </div>
                 </div>
             </Navbar>

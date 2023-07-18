@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Input, Checkbox } from "@material-tailwind/react";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
@@ -11,8 +11,11 @@ import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import OrderItem from "src/Components/Orders/Order";
 import OrderProduct from "src/Components/Orders/OrderProduct";
+import OrderDialog from "./../Components/Orders/OrderDialog";
 
 export default function Checkout() {
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(!open);
     const user = useSelector((state) => state.auth);
     const cartItems = useSelector((state) => state.cart.items);
     const totalPrice = useSelector((state) => state.cart.totalPrice);
@@ -28,6 +31,8 @@ export default function Checkout() {
     useEffect(() => {
         dispatch(getTotalPrice());
     }, [cartItems]);
+
+    console.log(open);
 
     const onSubmit = async (data) => {
         try {
@@ -52,70 +57,77 @@ export default function Checkout() {
                 totalPrice: totalPrice,
             });
             dispatch(clearCart());
-            // navigate(`/order/${orderId}`);
+            setOpen(true);
         } catch (e) {
             console.log(e);
         }
     };
 
     return (
-        <section className='flex flex-wrap justify-around gap-10 pt-10'>
-            <div className='w-[100%] md:w-[40%] p-4 flex flex-col'>
-                <h2 className='text-lg font-bold md:text-3xl mb-10 text-primary'>
-                    User's Information
-                </h2>
-                <form
-                    onSubmit={handleSubmit(onSubmit)}
-                    className='flex flex-col gap-10'
-                >
-                    <Input
-                        defaultValue={user?.name}
-                        error={errors.username}
-                        label='Name'
-                        {...register("username", { required: true })}
-                    />
-                    <Input
-                        defaultValue={user?.email}
-                        error={errors.email}
-                        label='E-mail'
-                        type={"email"}
-                        {...register("email", { required: true })}
-                    />
-                    <Input
-                        error={errors.phone}
-                        type={"text"}
-                        label='Phone Number'
-                        {...register("phone", { required: true })}
-                    />
-                    <Input
-                        error={errors.address}
-                        label='Address'
-                        {...register("address", { required: true })}
-                    />
-                    <div className='flex items-center'>
-                        <Checkbox color='blue' id='cash' />{" "}
-                        <label htmlFor='cash'>Cash On Delivery</label>
-                    </div>
-                    {user ? (
-                        <Button
-                            className='self-end flex items-center gap-2'
-                            type='submit'
-                        >
-                            Place Order <ArrowRightIcon className='w-5' />
-                        </Button>
-                    ) : (
-                        "Login first to place your order."
-                    )}
-                </form>
-            </div>
-            <div className='w-[90%] md:w-[50%]'>
-                <h2 className='text-lg font-bold md:text-3xl my-10 text-primary'>
-                    Cart
-                </h2>
-                {cartItems.map((item) => (
-                    <OrderProduct item={item} />
-                ))}
-            </div>
-        </section>
+        <>
+            {open && <OrderDialog open={open} handleOpen={handleOpen} />}
+            <section className='flex flex-wrap justify-around gap-10 pt-10'>
+                <div className='w-[100%] md:w-[40%] p-4 flex flex-col'>
+                    <h2 className='text-lg font-bold md:text-3xl mb-10 text-primary'>
+                        User's Information
+                    </h2>
+                    <form
+                        onSubmit={handleSubmit(onSubmit)}
+                        className='flex flex-col gap-10'
+                    >
+                        <Input
+                            defaultValue={user?.name}
+                            error={errors.username}
+                            label='Name'
+                            {...register("username", { required: true })}
+                        />
+                        <Input
+                            defaultValue={user?.email}
+                            error={errors.email}
+                            label='E-mail'
+                            type={"email"}
+                            {...register("email", { required: true })}
+                        />
+                        <Input
+                            error={errors.phone}
+                            type={"text"}
+                            label='Phone Number'
+                            {...register("phone", { required: true })}
+                        />
+                        <Input
+                            error={errors.address}
+                            label='Address'
+                            {...register("address", { required: true })}
+                        />
+                        <div className='flex items-center'>
+                            <Checkbox color='blue' id='cash' />{" "}
+                            <label htmlFor='cash'>Cash On Delivery</label>
+                        </div>
+                        {user ? (
+                            <Button
+                                className='self-end flex items-center gap-2'
+                                type='submit'
+                            >
+                                Place Order <ArrowRightIcon className='w-5' />
+                            </Button>
+                        ) : (
+                            "Login first to place your order."
+                        )}
+                    </form>
+                </div>
+                <div className='w-[90%] md:w-[50%]'>
+                    <h2 className='text-lg font-bold md:text-3xl my-10 text-primary'>
+                        Cart
+                    </h2>
+                    {cartItems.map((item) => (
+                        <OrderProduct item={item} />
+                    ))}
+                    <p>
+                        Total :{" "}
+                        <span className='text-primary'>${totalPrice}</span>
+                    </p>
+                </div>
+            </section>
+        </>
     );
 }
