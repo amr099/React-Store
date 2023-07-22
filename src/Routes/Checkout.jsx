@@ -5,11 +5,8 @@ import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { setDoc, doc } from "firebase/firestore";
 import { db } from "src/firebase-config";
 import { useForm } from "react-hook-form";
-import Cart from "src/Routes/Cart";
 import { getTotalPrice, clearCart } from "src/features/cart/cartSlice";
-import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import OrderItem from "src/Components/Orders/Order";
 import OrderProduct from "src/Components/Orders/OrderProduct";
 import OrderDialog from "./../Components/Orders/OrderDialog";
 
@@ -21,7 +18,6 @@ export default function Checkout() {
     const totalPrice = useSelector((state) => state.cart.totalPrice);
     const dispatch = useDispatch();
     const orderId = uuidv4();
-    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -31,8 +27,6 @@ export default function Checkout() {
     useEffect(() => {
         dispatch(getTotalPrice());
     }, [cartItems]);
-
-    console.log(open);
 
     const onSubmit = async (data) => {
         try {

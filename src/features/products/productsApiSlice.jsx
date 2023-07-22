@@ -7,8 +7,7 @@ export const productsApi = createApi({
     }),
     endpoints: (builder) => ({
         getProducts: builder.query({
-            query: () =>
-                "products?limit=8&skip=1&select=title,price,thumbnail,description",
+            query: () => "products?limit=100&select=thumbnail,title",
         }),
         getCategories: builder.query({
             query: () => `products/categories`,

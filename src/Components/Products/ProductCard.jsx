@@ -18,7 +18,7 @@ export default function ProductCard({ product }) {
     const dispatch = useDispatch();
 
     return (
-        <Card className='w-52 xl:w-72 !flex !flex-col !justify-between h-96'>
+        <Card className='w-52 xl:w-72 !flex !justify-between h-96'>
             <CardHeader shadow={false} floated={false} className='h-32 xl:h-52'>
                 <img
                     src={product.thumbnail}

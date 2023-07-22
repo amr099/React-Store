@@ -1,16 +1,10 @@
 import React from "react";
 import { Typography } from "@material-tailwind/react";
-import { TrashIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import { db } from "src/firebase-config";
-import { deleteDoc, doc } from "firebase/firestore";
 
 const tdclasses = "p-4 border-b border-blue-gray-50";
 
 export default function Order({ item }) {
-    const onDelete = (id) => {
-        deleteDoc(doc(db, "Orders", id));
-    };
     return (
         <tr key={item?.id}>
             <td className={tdclasses}>

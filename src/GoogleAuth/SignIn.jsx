@@ -8,7 +8,6 @@ import { Tooltip } from "@material-tailwind/react";
 
 export default function SignIn() {
     const dispatch = useDispatch();
-    const [adminIds, setAdminIds] = useState([]);
 
     const login = async () => {
         try {
