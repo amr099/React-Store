@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProductCard from "src/Components/Products/ProductCard";
 import Sort from "src/Components/Products/Sort";
 
@@ -10,6 +10,10 @@ export default function ProductsPage({ data, title }) {
         else if (sortby === "dec") return b.price - a.price;
         else return;
     };
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [data]);
 
     return (
         <div className='min-h-screen pt-10'>

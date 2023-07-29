@@ -1,8 +1,9 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Footer from "src/Components/Footer";
 import Search from "./Components/Nav/Search";
 import Nav from "./Components/Nav/Nav";
+import Breadcrumbs from "./Components/Breadcrumbs";
 
 function App() {
     const [searchbar, setSearchbar] = useState(false);
@@ -22,7 +23,12 @@ function App() {
                     setSearchbar={setSearchbar}
                     scroll={scroll}
                 />
-                <Search searchbar={searchbar} scroll={scroll} />
+                <Search
+                    searchbar={searchbar}
+                    scroll={scroll}
+                    setSearchbar={setSearchbar}
+                />
+                <Breadcrumbs />
                 <Outlet />
             </div>
             <Footer />

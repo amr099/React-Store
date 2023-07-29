@@ -9,7 +9,7 @@ export default function Order({ item }) {
         <tr key={item?.id}>
             <td className={tdclasses}>
                 <div className='flex items-center gap-3'>
-                    <Link to={`/order/${item?.id}`}>
+                    <Link to={`/orders/${item?.id}`}>
                         <Typography
                             variant='small'
                             color='blue-gray'

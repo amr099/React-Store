@@ -10,7 +10,7 @@ export default function Home() {
     const sunglasses = useGetCategoryQuery("sunglasses");
     return (
         <>
-            <img src={banner} className=''></img>
+            <img src={banner} className='w-full h-96  object-center'></img>
             <main className='mx-auto w-[90%] flex flex-col'>
                 <Slider data={phones?.data} title={"Smartphones"} />
                 <Slider data={laptops?.data} title={"Laptops"} />

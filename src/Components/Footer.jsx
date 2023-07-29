@@ -1,15 +1,36 @@
 import { Typography } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
+import { useGetCategoriesQuery } from "src/features/products/productsApiSlice";
 
 const currentYear = new Date().getFullYear();
 
 export default function Footer() {
+    const { data } = useGetCategoriesQuery();
+
     return (
         <footer className='relative w-full mt-10 bg-sky-100 py-5'>
             <div className='mx-auto w-full max-w-7xl px-8'>
-                <div className='grid grid-cols-1 justify-between gap-4 md:grid-cols-2'>
-                    <Typography variant='h5' className='mb-6 text-primary'>
-                        React Store
-                    </Typography>
+                <div className='flex justify-between'>
+                    <div className='flex flex-wrap gap-10 justify-between'>
+                        <Typography variant='h5' className='mb-6 text-primary'>
+                            React Store
+                        </Typography>
+                    </div>
+                    <div className='flex flex-col h-56 w-[50%] justify-around items-start flex-wrap gap-2'>
+                        {data?.map((cat) => (
+                            <Link
+                                to={`category/${cat}`}
+                                className='hover:text-primary'
+                            >
+                                <Typography
+                                    color='gray'
+                                    className='py-1.5 font-normal transition-colors hover:text-blue-gray-900'
+                                >
+                                    {cat}
+                                </Typography>
+                            </Link>
+                        ))}
+                    </div>
                 </div>
                 <div className='mt-12 flex w-full flex-col items-center justify-center border-t border-blue-gray-50 py-4 md:flex-row md:justify-between'>
                     <Typography

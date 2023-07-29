@@ -39,7 +39,7 @@ export default function CategoriesMenu() {
                     {data?.map((category) => (
                         <MenuItem className='md:max-w-[20%]' key={category}>
                             <Link
-                                to={`products/category/${category}`}
+                                to={`/${category}`}
                                 className='hover:text-primary'
                             >
                                 <h4

@@ -4,14 +4,15 @@ import { useNavigate } from "react-router-dom";
 import { List } from "./../List";
 import axios from "axios";
 
-export default function Search({ searchbar, scroll }) {
+export default function Search({ searchbar, scroll, setSearchbar }) {
     const [param, setParam] = useState("");
     const [products, setProducts] = useState([]);
     const navigate = useNavigate();
 
     const onSubmit = (e) => {
         e.preventDefault();
-        navigate(`/products/search?q=${param}`);
+        navigate(`/search?q=${param}`);
+        setSearchbar(false);
     };
 
     useEffect(() => {

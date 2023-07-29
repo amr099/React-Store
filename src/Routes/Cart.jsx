@@ -82,7 +82,7 @@ export default function Cart() {
                                 </span>
                             </p>
                         )}
-                        <Link to='/checkout' className='ml-auto'>
+                        <Link to='checkout' className='ml-auto'>
                             <Button className='text-sm font-bold mr-10 flex gap-1 '>
                                 Checkout <ArrowRightIcon className='w-5 h-5' />
                             </Button>

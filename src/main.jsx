@@ -19,24 +19,21 @@ import "slick-carousel/slick/slick-theme.css";
 
 const router = createBrowserRouter([
     {
-        path: "",
+        path: "/",
         element: <App />,
         errorElement: <ErrorPage />,
         children: [
-            {
-                path: "/",
-                element: <Home />,
-            },
+            { index: true, element: <Home /> },
             {
                 path: "product/:id",
                 element: <ProductDetails />,
             },
             {
-                path: "products/category/:category",
+                path: ":category",
                 element: <CategoryPage />,
             },
             {
-                path: "products/search",
+                path: "search",
                 element: <SearchPage />,
             },
             {
@@ -48,11 +45,11 @@ const router = createBrowserRouter([
                 element: <OrdersPage />,
             },
             {
-                path: "order/:id",
+                path: "orders/:id",
                 element: <OrderPage />,
             },
             {
-                path: "checkout",
+                path: "cart/checkout",
                 element: <Checkout />,
             },
         ],
