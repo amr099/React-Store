@@ -16,6 +16,7 @@ import OrdersPage from "./Routes/OrdersPage";
 import OrderPage from "./Routes/OrderPage";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Shop from "./Routes/Shop";
 
 const router = createBrowserRouter([
     {
@@ -25,7 +26,11 @@ const router = createBrowserRouter([
         children: [
             { index: true, element: <Home /> },
             {
-                path: "product/:id",
+                path: "products",
+                element: <Shop />,
+            },
+            {
+                path: "products/:id",
                 element: <ProductDetails />,
             },
             {

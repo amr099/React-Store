@@ -10,21 +10,20 @@ export default function Footer() {
     return (
         <footer className='relative w-full mt-10 bg-sky-100 py-5'>
             <div className='mx-auto w-full max-w-7xl px-8'>
-                <div className='flex justify-between'>
-                    <div className='flex flex-wrap gap-10 justify-between'>
-                        <Typography variant='h5' className='mb-6 text-primary'>
-                            React Store
-                        </Typography>
-                    </div>
-                    <div className='flex flex-col h-56 w-[50%] justify-around items-start flex-wrap gap-2'>
+                <div className='flex-col justify-center text-center md:text-left md:flex md:flex-row flex-wrap gap-4  md:justify-between'>
+                    <Typography variant='h5' className='mb-6 text-primary'>
+                        React Store
+                    </Typography>
+                    <div className='text-center md:flex md:w-[50%] md:flex-wrap md:gap-5 md:float-right'>
                         {data?.map((cat) => (
                             <Link
                                 to={`category/${cat}`}
                                 className='hover:text-primary'
                             >
                                 <Typography
+                                    variant='h6'
                                     color='gray'
-                                    className='py-1.5 font-normal transition-colors hover:text-blue-gray-900'
+                                    className='hover:text-primary font-bold transition-colors'
                                 >
                                     {cat}
                                 </Typography>

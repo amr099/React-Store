@@ -21,7 +21,7 @@ export default function ProductsPage({ data, title }) {
                 {title}
             </h3>
             <Sort setSortby={setSortby} />
-            <div className='flex flex-wrap gap-10 justify-around'>
+            <div className='flex content-start flex-wrap gap-10 justify-around'>
                 {data?.products
                     ?.slice(0)
                     ?.sort(sortFun)

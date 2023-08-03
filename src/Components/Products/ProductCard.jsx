@@ -27,7 +27,7 @@ export default function ProductCard({ product }) {
             </CardHeader>
             <CardBody>
                 <div className='flex items-center justify-between gap-3 mb-2'>
-                    <Link to={`/product/${product.id}`}>
+                    <Link to={`/products/${product.id}`}>
                         <h4
                             color='blue-gray'
                             className='text-xs font-semibold text-primary lg:text-base'
