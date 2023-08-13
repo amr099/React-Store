@@ -7,6 +7,8 @@ export default function Shop() {
     const [active, setActive] = useState(1);
     const { data } = useGetProductsQuery((active - 1) * 10);
 
+    console.log(data);
+
     return (
         <div>
             <ProductsPage data={data}></ProductsPage>

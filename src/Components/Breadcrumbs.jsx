@@ -13,7 +13,7 @@ export default function Breadcrumbs() {
                 ?.split("/")
                 ?.filter((path) => path != "")
                 ?.map((path) => (
-                    <Link to={`/${path}`} className='opacity-60'>
+                    <Link to={`/${path}`} className='opacity-60' key={path}>
                         {path}
                     </Link>
                 ))}

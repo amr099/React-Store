@@ -1,6 +1,7 @@
 import { Typography } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import { useGetCategoriesQuery } from "src/features/products/productsApiSlice";
+import Category from "./Categories/Category";
 
 const currentYear = new Date().getFullYear();
 
@@ -15,9 +16,10 @@ export default function Footer() {
                         React Store
                     </Typography>
                     <div className='text-center md:flex md:w-[50%] md:flex-wrap md:gap-5 md:float-right'>
-                        {data?.map((cat) => (
+                        {data?.map((category) => (
                             <Link
-                                to={`category/${cat}`}
+                                key={category}
+                                to={`/${category}`}
                                 className='hover:text-primary'
                             >
                                 <Typography
@@ -25,7 +27,7 @@ export default function Footer() {
                                     color='gray'
                                     className='hover:text-primary font-bold transition-colors'
                                 >
-                                    {cat}
+                                    {category}
                                 </Typography>
                             </Link>
                         ))}
