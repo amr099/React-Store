@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export function ImgWithBlurredCaption() {
     return (
-        <figure className='relative h-96 w-full'>
+        <figure className='relative h-[90vh] w-full'>
             <img
                 src={banner}
                 className='h-full w-full rounded-xl object-cover object-center'

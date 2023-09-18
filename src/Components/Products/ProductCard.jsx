@@ -42,13 +42,13 @@ export default function ProductCard({ product }) {
                         ${product.price}
                     </h4>
                 </div>
-                <Typography
+                {/* <Typography
                     variant='small'
                     color='gray'
                     className='font-normal opacity-75 text-ellipsis overflow-hidden w-42'
                 >
                     {product.description}
-                </Typography>
+                </Typography> */}
             </CardBody>
             <CardFooter className='pt-0'>
                 <Button
