@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
-import { List } from "./../List";
+// import { List } from "./../List";
 import axios from "axios";
 
 export default function Search({ searchbar, scroll, setSearchbar }) {
     const [param, setParam] = useState("");
-    const [products, setProducts] = useState([]);
+    // const [products, setProducts] = useState([]);
     const navigate = useNavigate();
 
     const onSubmit = (e) => {
@@ -15,19 +15,19 @@ export default function Search({ searchbar, scroll, setSearchbar }) {
         setSearchbar(false);
     };
 
-    useEffect(() => {
-        const getProducts = async () => {
-            try {
-                const products = await axios.get(
-                    `https://dummyjson.com/products/search?q=${param}&limit=100&select=thumbnail,title`
-                );
-                setProducts(products.data.products);
-            } catch (e) {
-                console.log(e + "cannot get products");
-            }
-        };
-        getProducts();
-    }, [param]);
+    // useEffect(() => {
+    //     const getProducts = async () => {
+    //         try {
+    //             const products = await axios.get(
+    //                 `https://dummyjson.com/products/search?q=${param}&limit=100&select=thumbnail,title`
+    //             );
+    //             setProducts(products.data.products);
+    //         } catch (e) {
+    //             console.log(e + "cannot get products");
+    //         }
+    //     };
+    //     getProducts();
+    // }, [param]);
 
     return (
         <>
@@ -50,17 +50,14 @@ export default function Search({ searchbar, scroll, setSearchbar }) {
                     <MagnifyingGlassIcon className='w-6 h-6 mx-2 text-primary' />
                 </button>
             </form>
-            {param && (
+            {/* {param && (
                 <List
-                    // items={products?.filter((p) =>
-                    //     p.title.toLocaleLowerCase().startsWith(param)
-                    // )}
                     items={products}
                     searchbar={searchbar}
                     scroll={scroll}
                     setParam={setParam}
                 />
-            )}
+            )} */}
         </>
     );
 }

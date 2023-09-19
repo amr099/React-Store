@@ -1,3 +1,4 @@
+import { Spinner } from "@material-tailwind/react";
 import React, { useEffect, useState } from "react";
 import ProductCard from "src/Components/Products/ProductCard";
 import Sort from "src/Components/Products/Sort";
@@ -14,6 +15,7 @@ export default function ProductsPage({ data, title }) {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [data]);
+    console.log(data);
 
     return (
         <div className='min-h-screen pt-10'>

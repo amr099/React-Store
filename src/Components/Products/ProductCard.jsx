@@ -11,6 +11,7 @@ import {
     Button,
     CardFooter,
     Badge,
+    Rating,
 } from "@material-tailwind/react";
 
 export default function ProductCard({ product }) {
@@ -41,6 +42,16 @@ export default function ProductCard({ product }) {
                     >
                         ${product.price}
                     </h4>
+                </div>
+                <div className='flex justify-between items-center'>
+                    <Rating value={Math.floor(product.rating)} readonly />
+                    <Typography
+                        variant='small'
+                        color='gray'
+                        className='font-bold opacity-75 text-ellipsis overflow-hidden w-42'
+                    >
+                        {product.rating}
+                    </Typography>
                 </div>
                 {/* <Typography
                     variant='small'

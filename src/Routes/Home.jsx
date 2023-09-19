@@ -1,7 +1,7 @@
 import React from "react";
 import { useGetCategoryQuery } from "src/features/products/productsApiSlice";
 import Slider from "src/Components/Slider";
-import { ImgWithBlurredCaption } from "src/Components/ImgWithButton";
+import { HeroImg } from "src/Components/HeroImg";
 
 export default function Home() {
     const phones = useGetCategoryQuery("smartphones");
@@ -10,7 +10,7 @@ export default function Home() {
     const sunglasses = useGetCategoryQuery("sunglasses");
     return (
         <>
-            <ImgWithBlurredCaption />
+            <HeroImg />
             <main className='mx-auto w-[90%] flex flex-col'>
                 <Slider data={phones?.data} title={"Smartphones"} />
                 <Slider data={laptops?.data} title={"Laptops"} />

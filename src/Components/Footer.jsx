@@ -15,17 +15,17 @@ export default function Footer() {
                     <Typography variant='h5' className='mb-6 text-primary'>
                         React Store
                     </Typography>
-                    <div className='text-center md:flex md:w-[50%] md:flex-wrap md:gap-5 md:float-right'>
+                    <div className='md:w-[70%] flex flex-wrap gap-4'>
                         {data?.map((category) => (
                             <Link
                                 key={category}
                                 to={`/${category}`}
-                                className='hover:text-primary'
+                                className='hover:text-primary mr-3 text-start lg:w-[20%]'
                             >
                                 <Typography
                                     variant='h6'
                                     color='gray'
-                                    className='hover:text-primary font-bold transition-colors'
+                                    className='hover:text-primary font-bold transition-colors text-xs md:text-sm'
                                 >
                                     {category}
                                 </Typography>

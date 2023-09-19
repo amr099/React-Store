@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { stringify } from "postcss";
 
 export const cartSlice = createSlice({
     name: "cart",
