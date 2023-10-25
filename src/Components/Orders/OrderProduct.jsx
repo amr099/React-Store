@@ -3,7 +3,7 @@ import { Badge, Typography, Avatar } from "@material-tailwind/react";
 
 export default function OrderProduct({ item }) {
     return (
-        <div className='flex justify-between items-center mb-10'>
+        <div className='flex justify-between gap-5 items-center mb-10'>
             <div className='flex gap-5 items-center j'>
                 <Badge color='green' content={item?.quantity}>
                     <Avatar

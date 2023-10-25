@@ -5,18 +5,16 @@ import { Link } from "react-router-dom";
 
 export function HeroImg() {
     return (
-        <figure className='relative h-[90vh] w-full'>
+        <figure className='relative max-h-[1000px] w-full'>
             <picture>
                 <source media='(max-width:769px)' srcset={bannerMob}></source>
                 <img
                     src={banner}
-                    className='h-full w-full rounded-xl object-cover object-center'
+                    className='w-full rounded-xl object-cover object-center'
                 ></img>
             </picture>
-            <Link to='/products'>
-                <figcaption className='absolute bottom-8 left-2/4 flex w-[200px] -translate-x-2/4 justify-center rounded-xl text-white bg-primary hover:bg-[#4E9DC6] py-4 px-6 shadow-lg shadow-black/5 saturate-200 backdrop-blur-sm'>
-                    <Typography variant='h4'>Shop Now</Typography>
-                </figcaption>
+            <Link to='/products' >
+                <Button color="blue" className="!absolute bottom-[10%] left-[50%] translate-x-[-50%] ">Shop Now</Button>
             </Link>
         </figure>
     );

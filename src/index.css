@@ -7,3 +7,17 @@
         font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     }
 }
+
+.slick-slider{
+  overflow: hidden;
+}	
+
+
+.slick-slide {
+  margin: 0 10px;
+}
+.slick-list {
+  margin: 0 -10px;
+  overflow-x: hidden;
+}
+

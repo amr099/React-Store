@@ -15,42 +15,42 @@ export default function OrderPage() {
         });
     }, []);
     return (
-        <section className='flex flex-wrap justify-around gap-10 pt-10'>
-            <div className='w-[100%] md:w-[40%] p-4 flex flex-col'>
+        <section className='flex flex-wrap justify-around gap-5 pt-10'>
+            <div className='w-[100%] p-4 flex flex-col'>
                 <h2 className='text-lg font-bold md:text-3xl mb-10 text-primary'>
                     Shipping Information
                 </h2>
                 <Card className=''>
                     <List>
                         <ListItem>
-                            <span className='font-bold'>Order Id:</span>{" "}
-                            {data?.id}
+                            <span className='font-bold whitespace-nowrap inline-block mr-2'>Order Id: </span>{" "}
+                            <p className="truncate">{data?.id}</p>
                         </ListItem>
                         <ListItem>
-                            <span className='font-bold'>Client Id:</span>{" "}
-                            {data?.uid}
+                            <span className='font-bold whitespace-nowrap inline-block mr-2'>Client Id:</span>{" "}
+                            <p className="truncate">{data?.uid}</p>
                         </ListItem>
                         <ListItem>
-                            <span className='font-bold'>Name:</span>{" "}
-                            {data?.name}
+                            <span className='font-bold whitespace-nowrap inline-block mr-2'>Name:</span>{" "}
+                            <p className="truncate">{data?.name}</p>
                         </ListItem>
                         <ListItem>
-                            <span className='font-bold'>Email:</span>{" "}
-                            {data?.email}
+                            <span className='font-bold whitespace-nowrap inline-block mr-2'>Email:</span>{" "}
+                            <p className="truncate">{data?.email}</p>
                         </ListItem>
                         <ListItem>
-                            <span className='font-bold'>Address:</span>{" "}
-                            {data?.address}
+                            <span className='font-bold whitespace-nowrap inline-block mr-2'>Address:</span>{" "}
+                            <p className="truncate">{data?.address}</p>
                         </ListItem>
                         <ListItem>
-                            <span className='font-bold'>Phone Number:</span>{" "}
-                            {data?.phone}
+                            <span className='font-bold whitespace-nowrap inline-block mr-2'>Phone Number:</span>{" "}
+                            <p className="truncate">{data?.phone}</p>
                         </ListItem>
                     </List>
                 </Card>
             </div>
-            <div className='w-[90%] md:w-[50%]'>
-                <h2 className='text-lg font-bold md:text-3xl my-10 text-primary'>
+            <div className='w-[90%] mx-auto'>
+                <h2 className='text-lg font-bold md:text-3xl mt-4 mb-12 text-primary'>
                     Order items
                 </h2>
                 {data?.products?.map((item) => (

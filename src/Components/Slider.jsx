@@ -7,7 +7,7 @@ var settings = {
     centerMode: true,
     mobileFirst: true,
     adaptiveHeight: true,
-    infinite: true,
+    // infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,

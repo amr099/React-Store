@@ -29,15 +29,16 @@ export default function Nav({ searchbar, setSearchbar, scroll }) {
             <Navbar
                 className={`dark ${
                     scroll && "fixed"
-                } top z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4`}
+                } top z-10 h-max max-w-full rounded-none px-4 lg:px-8 lg:py-4`}
             >
+                <div className="container mx-auto">
                 <div className='flex items-center justify-between text-blue-gray-900'>
                     <Link to='/'>
                         <h1 className='text-primary text-lg font-bold whitespace-nowrap lg:text-2xl'>
                             React Store
                         </h1>
                     </Link>
-                    <CategoriesMenu />
+                    {/* <CategoriesMenu /> */}
                     <div className='flex gap-4 items-center'>
                         <MagnifyingGlassIcon
                             className='h-4 md:h-6 w-4 md:w-6 hover:cursor-pointer text-primary'
@@ -59,6 +60,7 @@ export default function Nav({ searchbar, setSearchbar, scroll }) {
                             {user ? <ProfileMenu /> : <SignIn />}
                         </div>
                     </div>
+                </div>
                 </div>
             </Navbar>
         </>

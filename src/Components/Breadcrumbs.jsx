@@ -7,7 +7,7 @@ export default function Breadcrumbs() {
 
     return (
         location.pathname != "/" && (
-            <UIBreadcrumbs className='py-4'>
+            <UIBreadcrumbs className='py-4 hidden sm:flex'>
                 <Link to={`/`} className='opacity-60'>
                     home
                 </Link>
@@ -16,7 +16,7 @@ export default function Breadcrumbs() {
                     ?.filter((path) => path != "")
                     ?.map((path) => (
                         <Link to={`/${path}`} className='opacity-60' key={path}>
-                            {path}
+                            <p className="truncate">{path}</p>
                         </Link>
                     ))}
             </UIBreadcrumbs>
