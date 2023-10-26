@@ -25,19 +25,19 @@ export default function ProductCard({ product }) {
 
   const handleOpen = () => setOpen((cur) => !cur);
 
-  console.log(product);
-
   return (
     <>
-      <Card
-        className="w-52 xl:w-72 !flex !justify-between h-96 hover:cursor-pointer"
-        onClick={handleOpen}
-      >
-        <CardHeader shadow={false} floated={false} className="h-32 xl:h-52">
+      <Card className="w-52 xl:w-72 !flex !justify-between h-96 ">
+        <CardHeader
+          shadow={false}
+          floated={false}
+          className="h-32 xl:h-52 hover:cursor-pointer"
+          onClick={handleOpen}
+        >
           <img src={product.thumbnail} className="w-full h-full object-cover" />
         </CardHeader>
-        <CardBody>
-          <div className="flex items-center justify-between gap-3 mb-2">
+        <CardBody onClick={handleOpen}>
+          <div className="flex items-center justify-between gap-3 mb-2 hover:cursor-pointer">
             {/* <Link to={`/products/${product.id}`}> */}
             <h4
               color="blue-gray"

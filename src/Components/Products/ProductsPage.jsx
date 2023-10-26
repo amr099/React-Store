@@ -15,7 +15,6 @@ export default function ProductsPage({ data, title }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [data]);
-  console.log(data);
 
   return (
     <>
