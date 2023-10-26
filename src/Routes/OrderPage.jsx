@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { db } from "src/firebase-config";
 import OrderProduct from "src/Components/Orders/OrderProduct";
-import { Typography } from "@material-tailwind/react";
 import { List, ListItem, Card } from "@material-tailwind/react";
 
 export default function OrderPage() {
