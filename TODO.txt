@@ -1,0 +1,5 @@
+Todo Features: 
+    - Admin dashboard
+    - Authentication    
+    - Coupon system
+    - Payment gateway
