@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Input, Checkbox } from "@material-tailwind/react";
+import { Button, Input, Checkbox, Alert } from "@material-tailwind/react";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { setDoc, doc } from "firebase/firestore";
 import { db } from "src/firebase-config";
@@ -12,6 +12,7 @@ import OrderDialog from "./../Components/Orders/OrderDialog";
 
 export default function Checkout() {
   const [open, setOpen] = useState(false);
+  const [error, setError] = useState("");
   const handleOpen = () => setOpen(!open);
   const user = useSelector((state) => state.auth);
   const cartItems = useSelector((state) => state.cart.items);
@@ -29,11 +30,15 @@ export default function Checkout() {
   }, [cartItems]);
 
   const onSubmit = async (data) => {
+    if (products.lenght === 0) {
+      setError("Cart is Empty!");
+      return;
+    }
     try {
       await setDoc(doc(db, "Orders", orderId), {
         id: orderId,
         uid: user.uid,
-        name: data.username,
+        name: data.name,
         email: data.email,
         phone: data.phone,
         address: data.address,
@@ -53,6 +58,7 @@ export default function Checkout() {
       dispatch(clearCart());
       setOpen(true);
     } catch (e) {
+      setError(e.error);
       console.log(e);
     }
   };
@@ -104,6 +110,15 @@ export default function Checkout() {
               </Button>
             ) : (
               "Login first to place your order."
+            )}
+            {error && (
+              <Alert
+                className="md:w-[50%] w-[70%] mx-auto"
+                color="orange"
+                variant="ghost"
+              >
+                {error}
+              </Alert>
             )}
           </form>
         </div>

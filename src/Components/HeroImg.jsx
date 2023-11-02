@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export function HeroImg() {
   return (
-    <figure className="relative max-h-[1000px] w-full">
+    <figure className="relative max-h-[1000px] w-full mt-4">
       <picture>
         <source media="(max-width:769px)" srcset={bannerMob}></source>
         <img

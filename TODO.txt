@@ -1,5 +1,5 @@
 Todo Features: 
     - Admin dashboard
-    - Authentication    
+    - Authentication
     - Coupon system
     - Payment gateway
