@@ -2,7 +2,7 @@ import { doc, onSnapshot } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { db } from "src/firebase-config";
-import OrderProduct from "src/Components/Orders/OrderProduct";
+import OrderItem from "src/Components/Orders/OrderItem";
 import { List, ListItem, Card } from "@material-tailwind/react";
 
 export default function OrderPage() {
@@ -22,28 +22,40 @@ export default function OrderPage() {
                 <Card className=''>
                     <List>
                         <ListItem>
-                            <span className='font-bold whitespace-nowrap inline-block mr-2'>Order Id: </span>{" "}
-                            <p className="truncate">{data?.id}</p>
+                            <span className='font-bold whitespace-nowrap inline-block mr-2'>
+                                Order Id:{" "}
+                            </span>{" "}
+                            <p className='truncate'>{data?.id}</p>
                         </ListItem>
                         <ListItem>
-                            <span className='font-bold whitespace-nowrap inline-block mr-2'>Client Id:</span>{" "}
-                            <p className="truncate">{data?.uid}</p>
+                            <span className='font-bold whitespace-nowrap inline-block mr-2'>
+                                Client Id:
+                            </span>{" "}
+                            <p className='truncate'>{data?.uid}</p>
                         </ListItem>
                         <ListItem>
-                            <span className='font-bold whitespace-nowrap inline-block mr-2'>Name:</span>{" "}
-                            <p className="truncate">{data?.name}</p>
+                            <span className='font-bold whitespace-nowrap inline-block mr-2'>
+                                Name:
+                            </span>{" "}
+                            <p className='truncate'>{data?.name}</p>
                         </ListItem>
                         <ListItem>
-                            <span className='font-bold whitespace-nowrap inline-block mr-2'>Email:</span>{" "}
-                            <p className="truncate">{data?.email}</p>
+                            <span className='font-bold whitespace-nowrap inline-block mr-2'>
+                                Email:
+                            </span>{" "}
+                            <p className='truncate'>{data?.email}</p>
                         </ListItem>
                         <ListItem>
-                            <span className='font-bold whitespace-nowrap inline-block mr-2'>Address:</span>{" "}
-                            <p className="truncate">{data?.address}</p>
+                            <span className='font-bold whitespace-nowrap inline-block mr-2'>
+                                Address:
+                            </span>{" "}
+                            <p className='truncate'>{data?.address}</p>
                         </ListItem>
                         <ListItem>
-                            <span className='font-bold whitespace-nowrap inline-block mr-2'>Phone Number:</span>{" "}
-                            <p className="truncate">{data?.phone}</p>
+                            <span className='font-bold whitespace-nowrap inline-block mr-2'>
+                                Phone Number:
+                            </span>{" "}
+                            <p className='truncate'>{data?.phone}</p>
                         </ListItem>
                     </List>
                 </Card>
@@ -53,7 +65,7 @@ export default function OrderPage() {
                     Order items
                 </h2>
                 {data?.products?.map((item) => (
-                    <OrderProduct item={item} />
+                    <OrderItem item={item} />
                 ))}
                 <p>
                     Total :{" "}

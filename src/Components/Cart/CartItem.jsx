@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge, Typography, Avatar } from "@material-tailwind/react";
+import { Typography, Avatar } from "@material-tailwind/react";
 import { useDispatch } from "react-redux";
 import { removeFromCart, changeQuantity } from "../../features/cart/cartSlice";
 import { TrashIcon } from "@heroicons/react/24/outline";

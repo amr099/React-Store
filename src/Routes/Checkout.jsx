@@ -7,7 +7,7 @@ import { db } from "src/firebase-config";
 import { useForm } from "react-hook-form";
 import { getTotalPrice, clearCart } from "src/features/cart/cartSlice";
 import { v4 as uuidv4 } from "uuid";
-import OrderProduct from "src/Components/Orders/OrderProduct";
+import OrderProduct from "src/Components/Orders/OrderItem";
 import OrderDialog from "./../Components/Orders/OrderDialog";
 
 export default function Checkout() {

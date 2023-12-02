@@ -4,14 +4,13 @@ import { useGetProductsQuery } from "src/features/products/productsApiSlice";
 import { Pagination } from "./../Components/Pagination";
 
 export default function Shop() {
-  const [active, setActive] = useState(1);
-  const { data } = useGetProductsQuery((active - 1) * 12);
+    const [active, setActive] = useState(1);
+    const { data } = useGetProductsQuery((active - 1) * 12);
 
-  return (
-    <>
-      {/* <FilterByCategory /> */}
-      <ProductsPage data={data}></ProductsPage>
-      <Pagination active={active} setActive={setActive} />
-    </>
-  );
+    return (
+        <>
+            <ProductsPage data={data}></ProductsPage>
+            <Pagination active={active} setActive={setActive} />
+        </>
+    );
 }
