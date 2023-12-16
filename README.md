@@ -2,7 +2,7 @@
 Welcome to the React Store project! This is a web application developed using React, showcasing a simple online store interface.
 
 ## Demo
-Check out the live demo: React Store Demo[https://react-store123.netlify.app/]
+Check out the live demo: [React Store Demo](https://react-store123.netlify.app/)
 
 ## Features
 - Product Listing: Browse through a variety of products displayed on the homepage.
@@ -26,7 +26,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 - Git installed on your machine
 
 ### Installation
-- Clone the repository: git clone https://github.com/your-username/react-store.git
+- Clone the repository: git clone https://github.com/amr099/react-store.git
 - Navigate to the project directory: cd react-store
 - Install dependencies: npm install
 - Start the development server: npm run dev
